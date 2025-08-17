@@ -12,7 +12,7 @@ export default function Scorecard({ data }: Props) {
         <div key={inn.teamName} className="rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden">
           <div className="px-4 py-2 text-sm font-semibold bg-zinc-50 dark:bg-zinc-900 flex items-center justify-between">
             <div>{inn.teamName}</div>
-            <div className="text-xs text-zinc-600">{inn.runs}/{inn.wickets} ({inn.overs})</div>
+            <div className="text-xs text-zinc-600">{inn.score}/{inn.wickets} ({inn.overs})</div>
           </div>
           <div className="p-3">
             <div className="text-xs font-semibold mb-1">Batting</div>

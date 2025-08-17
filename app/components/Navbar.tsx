@@ -11,7 +11,7 @@ export default function Navbar({ title = "IPL CricBoard", showBack = false }: Pr
   const router = useRouter();
 
   return (
-    <div className="sticky top-0 z-40 w-full bg-[#1F4571] text-white shadow">
+    <div className="fixed top-0 left-0 right-0 z-50 w-full bg-[#1F4571] text-white shadow-lg border-b border-[#183a60]">
       <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           {showBack && (
@@ -25,7 +25,7 @@ export default function Navbar({ title = "IPL CricBoard", showBack = false }: Pr
               </svg>
             </button>
           )}
-          <Link href="/" className="text-lg font-bold tracking-wide hover:opacity-80 transition-opacity">
+          <Link href="/" className="text-xl font-semibold tracking-wide hover:opacity-80 transition-opacity">
             {title}
           </Link>
         </div>

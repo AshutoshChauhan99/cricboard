@@ -2,7 +2,8 @@
 import { MatchPreviewData } from "@/lib/types";
 
 export default function PreviewDetails({ data }: { data: MatchPreviewData }) {
-  const [home, away] = data.teams;
+  const home = data.team1;
+  const away = data.team2;
   return (
     <div className="space-y-4">
       <div className="text-xs inline-flex items-center gap-2 px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-900/60">
@@ -24,7 +25,7 @@ export default function PreviewDetails({ data }: { data: MatchPreviewData }) {
             <div className="text-lg font-semibold">{team.name}</div>
             <ul className="mt-2 list-disc list-inside text-sm space-y-1">
               {team.playing11.map((p) => (
-                <li key={p}>{p}</li>
+                <li key={p.name}>{p.name} ({p.role})</li>
               ))}
             </ul>
           </div>

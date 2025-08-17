@@ -56,7 +56,7 @@ export default function Home() {
     <div className="min-h-[100svh] flex flex-col overflow-x-hidden">
       <Navbar title="IPL CricBoard" />
       <WebSocketBridge />
-      <main className="flex-1 min-h-0">
+      <main className="flex-1 min-h-0 pt-16">
         <LiveStrip match={data?.liveOrNextMatch ?? null} />
 
         <div className="container mx-auto px-3 sm:px-4 lg:px-6">
@@ -99,13 +99,6 @@ export default function Home() {
                   ) : (
                     <ScheduleList items={scheduleByTab} />
                   )}
-                  <div className="mt-4">
-                    {blogLoading ? (
-                      <BlogListSkeleton />
-                    ) : (
-                      <BlogList posts={blogData?.posts ?? []} />
-                    )}
-                  </div>
                 </div>
                 <div className="col-span-1">
                   <div className="-mx-3 sm:mx-0 overflow-x-auto overflow-y-visible">
@@ -117,10 +110,16 @@ export default function Home() {
               </>
             )}
           </div>
+          
+          {/* Blog Section - Full Width */}
+          <div className="mt-8">
+            {blogLoading ? (
+              <BlogListSkeleton />
+            ) : (
+              <BlogList posts={blogData?.posts ?? []} />
+            )}
+          </div>
         </div>
-        <footer className="mt-8 text-center text-xs text-zinc-500 pb-[env(safe-area-inset-bottom)] px-3">
-          © {new Date().getFullYear()} IPL CricBoard. All rights reserved.
-        </footer>
       </main>
     </div>
   );

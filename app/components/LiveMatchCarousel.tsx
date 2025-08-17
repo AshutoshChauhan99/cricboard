@@ -41,7 +41,7 @@ export default function LiveMatchCarousel({ matches }: Props) {
           <button
             onClick={prevSlide}
             disabled={matches.length <= 1}
-            className="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition-colors"
             aria-label="Previous match"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,7 +51,7 @@ export default function LiveMatchCarousel({ matches }: Props) {
           <button
             onClick={nextSlide}
             disabled={matches.length <= 1}
-            className="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition-colors"
             aria-label="Next match"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -73,11 +73,10 @@ export default function LiveMatchCarousel({ matches }: Props) {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentIndex
+              className={`w-2 h-2 rounded-full transition-colors ${index === currentIndex
                   ? "bg-[#1F4571] dark:bg-blue-400"
                   : "bg-zinc-300 dark:bg-zinc-600 hover:bg-zinc-400 dark:hover:bg-zinc-500"
-              }`}
+                }`}
               aria-label={`Go to match ${index + 1}`}
             />
           ))}
@@ -94,11 +93,10 @@ export default function LiveMatchCarousel({ matches }: Props) {
             {matches.map((match, index) => (
               <div
                 key={match.id}
-                className={`flex items-center justify-between p-2 rounded cursor-pointer transition-colors ${
-                  index === currentIndex
+                className={`flex items-center justify-between p-2 rounded cursor-pointer transition-colors ${index === currentIndex
                     ? "bg-[#1F4571] text-white"
                     : "hover:bg-zinc-200 dark:hover:bg-zinc-800"
-                }`}
+                  }`}
                 onClick={() => goToSlide(index)}
               >
                 <div className="text-sm font-medium">{match.matchTitle}</div>

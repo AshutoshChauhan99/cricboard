@@ -6,7 +6,7 @@ IPL CricBoard is a comprehensive, real-time cricket application that provides li
 
 ## 🌟 **Live Demo**
 
-**[🚀 View Live Demo](https://ipl-cricboard.vercel.app/)**
+**[🚀 View Live Demo](https://cricboardil.netlify.app/)**
 
 *Experience the full application with live data and interactive features*
 

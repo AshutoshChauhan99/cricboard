@@ -17,31 +17,32 @@ export default function Tabs({ tabs, initial, value, onChange }: Props) {
   const [internal, setInternal] = useState<string>(initial ?? tabs[0]?.key);
   const current = value ?? internal;
 
+  const handleTabClick = (key: string) => {
+    if (onChange) {
+      onChange(key);
+    } else {
+      setInternal(key);
+    }
+  };
+
   return (
-    <div className="border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950">
-      <div className="mx-auto max-w-7xl px-2 sm:px-4">
-        <nav className="flex gap-4 overflow-x-auto" aria-label="Tabs" role="tablist">
-          {tabs.map((t) => {
-            const active = t.key === current;
-            return (
-              <button
-                key={t.key}
-                className={`whitespace-nowrap px-3 py-3 text-sm font-medium cursor-pointer ${
-                  active ? "border-b-2 border-[#1F4571] text-[#1F4571]" : "text-zinc-500 hover:text-zinc-700"
-                }`}
-                role="tab"
-                aria-selected={active}
-                onClick={() => {
-                  if (value === undefined) setInternal(t.key);
-                  onChange?.(t.key);
-                }}
-              >
-                {t.label}
-              </button>
-            );
-          })}
-        </nav>
-      </div>
+    <div className="mb-4 sm:mb-6">
+      <nav className="flex gap-2 sm:gap-4 overflow-x-auto scrollbar-hide pt-2" aria-label="Tabs" role="tablist">
+        {tabs.map((tab) => (
+          <button
+            key={tab.key}
+            onClick={() => handleTabClick(tab.key)}
+            role="tab"
+            aria-selected={current === tab.key}
+            className={`whitespace-nowrap px-2 sm:px-3 py-2 sm:py-3 text-xs sm:text-sm font-medium cursor-pointer rounded-lg transition-colors ${current === tab.key
+              ? "bg-[#1F4571] text-white"
+              : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </nav>
     </div>
   );
 }

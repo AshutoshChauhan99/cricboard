@@ -69,9 +69,9 @@ export default function Home() {
             value={tab}
             onChange={setTab}
           />
-          <div className="py-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="py-4 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
             {error && (
-              <div className="text-sm text-red-600 col-span-full">
+              <div className="text-xs sm:text-sm text-red-600 col-span-full">
                 Failed to load data. Showing last known values if any.
               </div>
             )}
@@ -102,7 +102,7 @@ export default function Home() {
                 </div>
                 <div className="col-span-1">
                   <div className="-mx-3 sm:mx-0 overflow-x-auto overflow-y-visible">
-                    <div className="min-w-[320px] sm:min-w-0 px-3 sm:px-0">
+                    <div className="min-w-[280px] sm:min-w-0 px-3 sm:px-0">
                       <PointsTable rows={data.pointsTable} />
                     </div>
                   </div>
@@ -110,9 +110,9 @@ export default function Home() {
               </>
             )}
           </div>
-          
+
           {/* Blog Section - Full Width */}
-          <div className="mt-8">
+          <div className="mt-6 sm:mt-8">
             {blogLoading ? (
               <BlogListSkeleton />
             ) : (

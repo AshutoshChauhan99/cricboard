@@ -12,8 +12,8 @@ export default function LiveMatchCarousel({ matches }: Props) {
 
   if (!matches || matches.length === 0) {
     return (
-      <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 p-4 bg-white/70 dark:bg-zinc-900/50">
-        <div className="text-sm text-zinc-500">No live matches right now.</div>
+      <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 p-3 sm:p-4 bg-white/70 dark:bg-zinc-900/50">
+        <div className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">No live matches right now.</div>
       </div>
     );
   }
@@ -33,11 +33,11 @@ export default function LiveMatchCarousel({ matches }: Props) {
   return (
     <div className="relative">
       {/* Live Matches Header */}
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 mb-4">
+        <h2 className="text-base sm:text-lg font-semibold text-zinc-800 dark:text-zinc-200">
           Live Matches ({matches.length})
         </h2>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 self-end">
           <button
             onClick={prevSlide}
             disabled={matches.length <= 1}
@@ -74,8 +74,8 @@ export default function LiveMatchCarousel({ matches }: Props) {
               key={index}
               onClick={() => goToSlide(index)}
               className={`w-2 h-2 rounded-full transition-colors ${index === currentIndex
-                  ? "bg-[#1F4571] dark:bg-blue-400"
-                  : "bg-zinc-300 dark:bg-zinc-600 hover:bg-zinc-400 dark:hover:bg-zinc-500"
+                ? "bg-[#1F4571] dark:bg-blue-400"
+                : "bg-zinc-300 dark:bg-zinc-600 hover:bg-zinc-400 dark:hover:bg-zinc-500"
                 }`}
               aria-label={`Go to match ${index + 1}`}
             />
@@ -94,8 +94,8 @@ export default function LiveMatchCarousel({ matches }: Props) {
               <div
                 key={match.id}
                 className={`flex items-center justify-between p-2 rounded cursor-pointer transition-colors ${index === currentIndex
-                    ? "bg-[#1F4571] text-white"
-                    : "hover:bg-zinc-200 dark:hover:bg-zinc-800"
+                  ? "bg-[#1F4571] text-white"
+                  : "hover:bg-zinc-200 dark:hover:bg-zinc-800"
                   }`}
                 onClick={() => goToSlide(index)}
               >

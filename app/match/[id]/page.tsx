@@ -8,8 +8,10 @@ export default async function MatchPage() {
     <div className="min-h-screen">
       <Navbar title="IPL CricBoard" showBack={true} />
       <LiveStrip match={null} />
-      <main className="mx-auto max-w-7xl px-4 py-4 pt-16">
-        <ClientScorecardPage />
+      <main className="flex-1 min-h-0 pt-16">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6">
+          <ClientScorecardPage />
+        </div>
       </main>
     </div>
   );

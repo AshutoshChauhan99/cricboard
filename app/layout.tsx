@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "IPL CricBoard - Live Cricket Scores & Match Updates",
   description: "Your ultimate destination for live cricket scores, match updates, and comprehensive IPL coverage. Stay connected with real-time updates and detailed match analysis.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
 };
 
 export default function RootLayout({
